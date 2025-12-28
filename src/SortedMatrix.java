@@ -9,12 +9,20 @@ public class SortedMatrix {
 
     public static int countNegatives(int[][] grid){
 
-        int columns = grid[0].length;
+        int rows = grid.length;
+        int cols = grid[0].length;
+
+        int row = 0;
+        int col = cols - 1;
         int count = 0;
 
-        for (int[] ints : grid) {
-            for (int j = 0; j < columns; j++) {
-                if (ints[j] < 0) count++;
+        while(row < rows && col >= 0){
+            if(grid[row][col] < 0){
+                count += rows - row;
+                col --;
+            }
+            else{
+                row++;
             }
         }
 
