@@ -1,4 +1,6 @@
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class NRepeatedElements {
     public static void main(String[] args){
@@ -10,18 +12,14 @@ public class NRepeatedElements {
     }
 
     private static int repeatedNTimes(int[] nums) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for(int i : nums) {
-            map.put(i,map.getOrDefault(i,0)+1);
-        }
+        Set<Integer> set = new HashSet<>();
 
         for(int i : nums){
-            if(map.get(i) > 1){
-                return i;
-            }
+            if(!set.contains(i)) return i;
+
+            set.add(i);
         }
 
-        return -1;
+        throw new Error("No repeated element was found");
     }
 }
