@@ -15,8 +15,7 @@ public class NRepeatedElements {
         Set<Integer> set = new HashSet<>();
 
         for(int i : nums){
-            if(!set.contains(i)) return i;
-
+            if(set.contains(i)) return i;
             set.add(i);
         }
 
